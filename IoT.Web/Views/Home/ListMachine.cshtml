@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "List Machines";
+}
+<h3 class="text-info">@ViewBag.Title.</h3>
+<div class="row mt-4">
+    <div class="col-md-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Click</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mixing Machine 1</td>
+                    <td><label class="text-success font-weight-bold">online</label></td>
+                    <td>
+                        <a href="/Home/Chart" class="btn btn-info">Click</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Mixing Machine 2</td>
+                    <td><label class="text-danger font-weight-bold">offline</label></td>
+                    <td>
+                        <a href="/Home/Chart" class="btn btn-info">Click</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

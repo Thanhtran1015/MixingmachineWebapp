@@ -1,0 +1,885 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33E0E921-D7FD-4DD4-A5C1-35DEBB819FF2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IoT.Web</RootNamespace>
+    <AssemblyName>IoT.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44360</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MongoDB.Bson, Version=2.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.7.3\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.7.3\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.7.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\SettingsRepository.cs" />
+    <Compile Include="Models\ISettingsRepository.cs" />
+    <Compile Include="Models\IRPMDisplayDataRepository.cs" />
+    <Compile Include="Models\RPMDisplayDataRepository.cs" />
+    <Compile Include="Models\EmployeeRepository.cs" />
+    <Compile Include="Models\IEmployeeRepository.cs" />
+    <Compile Include="Models\IoTWebContexts.cs" />
+    <Compile Include="Models\MongoDbContext.cs" />
+    <Compile Include="Models\RPMDisplayData.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bower_components\chart.js\dist\Chart.bundle.js" />
+    <Content Include="Content\bower_components\chart.js\dist\Chart.bundle.min.js" />
+    <Content Include="Content\bower_components\chart.js\dist\Chart.css" />
+    <Content Include="Content\bower_components\chart.js\dist\Chart.js" />
+    <Content Include="Content\bower_components\chart.js\dist\Chart.min.css" />
+    <Content Include="Content\bower_components\chart.js\dist\Chart.min.js" />
+    <Content Include="Content\bower_components\chart.js\docs\style.css" />
+    <Content Include="Content\bower_components\chart.js\gulpfile.js" />
+    <Content Include="Content\bower_components\chart.js\karma.conf.js" />
+    <Content Include="Content\bower_components\chart.js\rollup.config.js" />
+    <Content Include="Content\bower_components\chart.js\rollup.plugins.js" />
+    <Content Include="Content\bower_components\chart.js\samples\advanced\content-security-policy.css" />
+    <Content Include="Content\bower_components\chart.js\samples\advanced\content-security-policy.html" />
+    <Content Include="Content\bower_components\chart.js\samples\advanced\content-security-policy.js" />
+    <Content Include="Content\bower_components\chart.js\samples\advanced\progress-bar.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\area\analyser.js" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\area\line-boundaries.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\area\line-datasets.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\area\line-stacked.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\area\radar.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\bar\horizontal.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\bar\multi-axis.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\bar\stacked-group.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\bar\stacked.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\bar\vertical.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\bubble.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\combo-bar-line.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\doughnut.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\basic.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\interpolation-modes.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\line-styles.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\multi-axis.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\point-sizes.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\point-styles.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\skip-points.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\line\stepped.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\pie.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\polar-area.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\radar-skip-points.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\radar.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\scatter\basic.html" />
+    <Content Include="Content\bower_components\chart.js\samples\charts\scatter\multi-axis.html" />
+    <Content Include="Content\bower_components\chart.js\samples\favicon.ico" />
+    <Content Include="Content\bower_components\chart.js\samples\index.html" />
+    <Content Include="Content\bower_components\chart.js\samples\legend\callbacks.html" />
+    <Content Include="Content\bower_components\chart.js\samples\legend\point-style.html" />
+    <Content Include="Content\bower_components\chart.js\samples\legend\positioning.html" />
+    <Content Include="Content\bower_components\chart.js\samples\logo.svg" />
+    <Content Include="Content\bower_components\chart.js\samples\samples.js" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\filtering-labels.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\gridlines-display.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\gridlines-style.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\linear\min-max-suggested.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\linear\min-max.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\linear\step-size.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\logarithmic\line.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\logarithmic\scatter.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\multiline-labels.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\non-numeric-y.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\time\combo.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\time\financial.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\time\line-point-data.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\time\line.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scales\toggle-scale-type.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scriptable\bar.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scriptable\bubble.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scriptable\line.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scriptable\pie.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scriptable\polar.html" />
+    <Content Include="Content\bower_components\chart.js\samples\scriptable\radar.html" />
+    <Content Include="Content\bower_components\chart.js\samples\style.css" />
+    <Content Include="Content\bower_components\chart.js\samples\tooltips\border.html" />
+    <Content Include="Content\bower_components\chart.js\samples\tooltips\callbacks.html" />
+    <Content Include="Content\bower_components\chart.js\samples\tooltips\custom-line.html" />
+    <Content Include="Content\bower_components\chart.js\samples\tooltips\custom-pie.html" />
+    <Content Include="Content\bower_components\chart.js\samples\tooltips\custom-points.html" />
+    <Content Include="Content\bower_components\chart.js\samples\tooltips\interactions.html" />
+    <Content Include="Content\bower_components\chart.js\samples\tooltips\positioning.html" />
+    <Content Include="Content\bower_components\chart.js\samples\utils.js" />
+    <Content Include="Content\bower_components\chart.js\src\adapters\adapter.moment.js" />
+    <Content Include="Content\bower_components\chart.js\src\adapters\index.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.bar.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.bubble.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.doughnut.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.horizontalBar.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.line.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.pie.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.polarArea.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.radar.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\controller.scatter.js" />
+    <Content Include="Content\bower_components\chart.js\src\controllers\index.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.adapters.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.animation.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.animations.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.controller.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.datasetController.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.defaults.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.element.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.helpers.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.interaction.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.layouts.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.plugins.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.scale.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.scaleService.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.ticks.js" />
+    <Content Include="Content\bower_components\chart.js\src\core\core.tooltip.js" />
+    <Content Include="Content\bower_components\chart.js\src\elements\element.arc.js" />
+    <Content Include="Content\bower_components\chart.js\src\elements\element.line.js" />
+    <Content Include="Content\bower_components\chart.js\src\elements\element.point.js" />
+    <Content Include="Content\bower_components\chart.js\src\elements\element.rectangle.js" />
+    <Content Include="Content\bower_components\chart.js\src\elements\index.js" />
+    <Content Include="Content\bower_components\chart.js\src\helpers\helpers.canvas.js" />
+    <Content Include="Content\bower_components\chart.js\src\helpers\helpers.core.js" />
+    <Content Include="Content\bower_components\chart.js\src\helpers\helpers.easing.js" />
+    <Content Include="Content\bower_components\chart.js\src\helpers\helpers.options.js" />
+    <Content Include="Content\bower_components\chart.js\src\helpers\index.js" />
+    <Content Include="Content\bower_components\chart.js\src\index.js" />
+    <Content Include="Content\bower_components\chart.js\src\platforms\platform.basic.js" />
+    <Content Include="Content\bower_components\chart.js\src\platforms\platform.dom.css" />
+    <Content Include="Content\bower_components\chart.js\src\platforms\platform.dom.js" />
+    <Content Include="Content\bower_components\chart.js\src\platforms\platform.js" />
+    <Content Include="Content\bower_components\chart.js\src\plugins\index.js" />
+    <Content Include="Content\bower_components\chart.js\src\plugins\plugin.filler.js" />
+    <Content Include="Content\bower_components\chart.js\src\plugins\plugin.legend.js" />
+    <Content Include="Content\bower_components\chart.js\src\plugins\plugin.title.js" />
+    <Content Include="Content\bower_components\chart.js\src\scales\index.js" />
+    <Content Include="Content\bower_components\chart.js\src\scales\scale.category.js" />
+    <Content Include="Content\bower_components\chart.js\src\scales\scale.linear.js" />
+    <Content Include="Content\bower_components\chart.js\src\scales\scale.linearbase.js" />
+    <Content Include="Content\bower_components\chart.js\src\scales\scale.logarithmic.js" />
+    <Content Include="Content\bower_components\chart.js\src\scales\scale.radialLinear.js" />
+    <Content Include="Content\bower_components\chart.js\src\scales\scale.time.js" />
+    <Content Include="Content\bower_components\chart.js\test\context.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixture.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\backgroundColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\backgroundColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\backgroundColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\backgroundColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\backgroundColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\backgroundColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-absolute.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex-offset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex-single-reverse.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex-single.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-max.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-min-interval.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-multiple.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-no-overlap.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-offset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-reverse.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-single-xy.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-single.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-stacked.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderSkipped\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderSkipped\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderSkipped\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderSkipped\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderSkipped\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderSkipped\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\indexable-object.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\indexable-object.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\negative.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\negative.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\object.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\object.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\scriptable-object.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\scriptable-object.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\borderWidth\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\chart-area-clip.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\chart-area-clip.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\horizontal-borders.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\horizontal-borders.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bubble\point-style.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bubble\radius-scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bubble\radius-scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\backgroundColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\backgroundColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\backgroundColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\backgroundColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\backgroundColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\backgroundColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderAlign\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderAlign\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderAlign\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderAlign\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderAlign\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderAlign\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderWidth\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderWidth\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderWidth\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderWidth\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderWidth\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\borderWidth\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\doughnut-border-align-center.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\doughnut-border-align-inner.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\doughnut-weight.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\pie-border-align-center.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\pie-border-align-inner.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\pie-weight.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\backgroundColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\backgroundColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\backgroundColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\backgroundColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\backgroundColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\backgroundColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderWidth\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderWidth\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderWidth\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderWidth\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderWidth\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\borderWidth\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\point-style.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\pointStyle\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\pointStyle\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\pointStyle\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\pointStyle\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\pointStyle\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\pointStyle\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\radius\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\radius\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\radius\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\radius\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\radius\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\radius\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\rotation\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\rotation\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\rotation\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\rotation\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\rotation\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\rotation\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\angle-array.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\angle-undefined.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\indexable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\indexable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\indexable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\indexable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\scriptable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\scriptable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\scriptable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\scriptable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\value-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\value-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\value-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\backgroundColor\value-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\border-align-center.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\border-align-inner.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\indexable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\indexable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\indexable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\indexable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\scriptable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\scriptable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\scriptable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\scriptable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\value-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\value-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\value-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderAlign\value-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\indexable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\indexable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\indexable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\indexable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\scriptable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\scriptable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\scriptable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\scriptable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\value-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\value-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\value-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderColor\value-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\indexable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\indexable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\indexable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\indexable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\scriptable-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\scriptable-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\scriptable-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\scriptable-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\value-dataset.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\value-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\value-element-options.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\borderWidth\value-element-options.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\backgroundColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\backgroundColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\backgroundColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\backgroundColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\backgroundColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\backgroundColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderColor\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderColor\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderColor\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderColor\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderColor\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderColor\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderWidth\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderWidth\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderWidth\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderWidth\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderWidth\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\borderWidth\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\point-style.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\pointStyle\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\pointStyle\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\pointStyle\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\pointStyle\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\pointStyle\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\pointStyle\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\radius\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\radius\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\radius\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\radius\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\radius\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\radius\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\rotation\indexable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\rotation\indexable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\rotation\scriptable.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\rotation\scriptable.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\rotation\value.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\rotation\value.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\core.scale\label-offset-vertical-axes.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\core.scale\tick-drawing.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\core.tooltip\opacity.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\core.tooltip\opacity.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-circle.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-cross-rot.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-cross.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-dash.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-line.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-rect-rot.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-rect-rounded.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-rect.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-star.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-triangle.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\rotation.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\rotation.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\helpers.canvas\rounded-rect.js" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\helpers.canvas\rounded-rect.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-end-span.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-end.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-span.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-spline-span.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-spline.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-stepped-span.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-stepped.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-start-span.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-start.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset-span.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset-spline-span.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset-spline.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin-spline.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\scale.radialLinear\border-dash.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\scale.radialLinear\circular-border-dash.png" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\scale.radialLinear\indexable-gridlines.png" />
+    <Content Include="Content\bower_components\chart.js\test\index.js" />
+    <Content Include="Content\bower_components\chart.js\test\matchers.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\controller.bar.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\controller.bubble.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\controller.doughnut.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\controller.line.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\controller.polarArea.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\controller.radar.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\controller.scatter.test.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.controller.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.datasetController.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.element.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.helpers.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.interaction.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.layouts.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.plugin.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.scale.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.scaleService.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.ticks.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\core.tooltip.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\element.arc.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\element.line.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\element.point.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\element.rectangle.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\global.defaults.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\global.deprecations.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\global.namespace.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\helpers.canvas.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\helpers.core.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\helpers.easing.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\helpers.options.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\platform.dom.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\plugin.filler.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\plugin.legend.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\plugin.title.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\scale.category.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\scale.linear.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\scale.logarithmic.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\scale.radialLinear.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\specs\scale.time.tests.js" />
+    <Content Include="Content\bower_components\chart.js\test\utils.js" />
+    <Content Include="Content\bower_components\mustache.js\mustache.js" />
+    <Content Include="Content\bower_components\mustache.js\mustache.min.js" />
+    <Content Include="Content\bower_components\mustache.js\spec\_files\bom_as_whitespace.js" />
+    <Content Include="Content\bower_components\mustache.js\spec\_files\bom_as_whitespace.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bower_components\chart.js\.bower.json" />
+    <Content Include="Content\bower_components\chart.js\.editorconfig" />
+    <Content Include="Content\bower_components\chart.js\.eslintignore" />
+    <Content Include="Content\bower_components\chart.js\.eslintrc.yml" />
+    <Content Include="Content\bower_components\chart.js\.htmllintrc" />
+    <Content Include="Content\bower_components\chart.js\book.json" />
+    <Content Include="Content\bower_components\chart.js\bower.json" />
+    <Content Include="Content\bower_components\chart.js\composer.json" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\cartesian\category.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\cartesian\linear.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\cartesian\logarithmic.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\cartesian\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\cartesian\time.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\labelling.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\radial\linear.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\radial\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\axes\styling.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\area.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\bar.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\bubble.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\doughnut.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\line.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\mixed.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\polar.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\radar.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\charts\scatter.md" />
+    <Content Include="Content\bower_components\chart.js\docs\configuration\animations.md" />
+    <Content Include="Content\bower_components\chart.js\docs\configuration\elements.md" />
+    <Content Include="Content\bower_components\chart.js\docs\configuration\layout.md" />
+    <Content Include="Content\bower_components\chart.js\docs\configuration\legend.md" />
+    <Content Include="Content\bower_components\chart.js\docs\configuration\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\configuration\title.md" />
+    <Content Include="Content\bower_components\chart.js\docs\configuration\tooltip.md" />
+    <Content Include="Content\bower_components\chart.js\docs\developers\api.md" />
+    <Content Include="Content\bower_components\chart.js\docs\developers\axes.md" />
+    <Content Include="Content\bower_components\chart.js\docs\developers\charts.md" />
+    <Content Include="Content\bower_components\chart.js\docs\developers\contributing.md" />
+    <Content Include="Content\bower_components\chart.js\docs\developers\plugins.md" />
+    <Content Include="Content\bower_components\chart.js\docs\developers\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\developers\updates.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\accessibility.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\colors.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\device-pixel-ratio.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\fonts.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\interactions\events.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\interactions\modes.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\interactions\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\options.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\general\responsive.md" />
+    <Content Include="Content\bower_components\chart.js\docs\getting-started\installation.md" />
+    <Content Include="Content\bower_components\chart.js\docs\getting-started\integration.md" />
+    <Content Include="Content\bower_components\chart.js\docs\getting-started\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\getting-started\usage.md" />
+    <Content Include="Content\bower_components\chart.js\docs\notes\comparison.md" />
+    <Content Include="Content\bower_components\chart.js\docs\notes\extensions.md" />
+    <Content Include="Content\bower_components\chart.js\docs\notes\license.md" />
+    <Content Include="Content\bower_components\chart.js\docs\notes\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\README.md" />
+    <Content Include="Content\bower_components\chart.js\docs\SUMMARY.md" />
+    <Content Include="Content\bower_components\chart.js\LICENSE.md" />
+    <Content Include="Content\bower_components\chart.js\MAINTAINING.md" />
+    <Content Include="Content\bower_components\chart.js\package.json" />
+    <Content Include="Content\bower_components\chart.js\README.md" />
+    <Content Include="Content\bower_components\chart.js\samples\.eslintrc.yml" />
+    <Content Include="Content\bower_components\chart.js\test\.eslintrc.yml" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-absolute.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex-offset.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex-single-reverse.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex-single.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-flex.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-max.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-min-interval.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-multiple.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-no-overlap.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-offset.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-reverse.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-single-xy.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-single.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bar\bar-thickness-stacked.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.bubble\point-style.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\doughnut-border-align-center.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\doughnut-border-align-inner.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\doughnut-weight.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\pie-border-align-center.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\pie-border-align-inner.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.doughnut\pie-weight.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.line\point-style.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\angle-array.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\angle-undefined.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\border-align-center.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.polarArea\border-align-inner.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\controller.radar\point-style.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\core.scale\label-offset-vertical-axes.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\core.scale\tick-drawing.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-circle.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-cross-rot.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-cross.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-dash.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-line.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-rect-rot.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-rect-rounded.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-rect.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-star.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\element.point\point-style-triangle.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-end-span.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-end.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-span.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-spline-span.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-spline.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-stepped-span.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin-stepped.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-origin.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-start-span.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-boundary-start.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset-span.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset-spline-span.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset-spline.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-line-dataset.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin-spline.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\scale.radialLinear\border-dash.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\scale.radialLinear\circular-border-dash.json" />
+    <Content Include="Content\bower_components\chart.js\test\fixtures\scale.radialLinear\indexable-gridlines.json" />
+    <Content Include="Content\bower_components\mustache.js\.bower.json" />
+    <Content Include="Content\bower_components\mustache.js\bin\mustache" />
+    <Content Include="Content\bower_components\mustache.js\bower.json" />
+    <Content Include="Content\bower_components\mustache.js\CHANGELOG.md" />
+    <Content Include="Content\bower_components\mustache.js\hooks\install-hooks.sh" />
+    <Content Include="Content\bower_components\mustache.js\hooks\pre-commit" />
+    <Content Include="Content\bower_components\mustache.js\LICENSE" />
+    <Content Include="Content\bower_components\mustache.js\MIGRATING.md" />
+    <Content Include="Content\bower_components\mustache.js\mustache.js.nuspec" />
+    <Content Include="Content\bower_components\mustache.js\package.json" />
+    <Content Include="Content\bower_components\mustache.js\Rakefile" />
+    <Content Include="Content\bower_components\mustache.js\README.md" />
+    <Content Include="Content\bower_components\mustache.js\spec\_files\bom_as_whitespace.mustache" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\dojo\mustache.js.post" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\dojo\mustache.js.pre" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\jquery\mustache.js.post" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\jquery\mustache.js.pre" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\mootools\mustache.js.post" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\mootools\mustache.js.pre" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\qooxdoo\mustache.js.post" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\qooxdoo\mustache.js.pre" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\yui3\mustache.js.post" />
+    <Content Include="Content\bower_components\mustache.js\wrappers\yui3\mustache.js.pre" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\ListMachine.cshtml" />
+    <Content Include="Views\Home\Chart.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Settings\Create.cshtml" />
+    <Content Include="Views\Settings\Delete.cshtml" />
+    <Content Include="Views\Settings\Details.cshtml" />
+    <Content Include="Views\Settings\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53867</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44360/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

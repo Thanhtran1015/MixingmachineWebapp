@@ -1,0 +1,58 @@
+﻿@model IoT.Web.Models.Settings
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CoreID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoreID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandardRPM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandardRPM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Allowance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Allowance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartAfter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartAfter)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
