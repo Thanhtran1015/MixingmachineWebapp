@@ -17,5 +17,7 @@ namespace IoT.Web.Models
         public int Allowance { get; set; }
         public int TimeOut { get; set; }
         public int StartAfter { get; set; }
+        [BsonElement("onAlarm")]
+        public bool OnAlarm { get; set; }
     }
 }

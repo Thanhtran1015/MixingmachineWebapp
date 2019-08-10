@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -29,6 +30,8 @@ namespace IoT.Web.Controllers
         public async Task<ActionResult> Chart()
         {
             ViewBag.Message = "Chart";
+            var url = ConfigurationManager.AppSettings["api"].ToString();
+            ViewBag.url = url.ToString();
             return View();
         }
         public ActionResult ListMachine()

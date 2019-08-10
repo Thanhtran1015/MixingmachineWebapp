@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -12,8 +13,10 @@ namespace IoT.Web.Models
         private readonly IMongoDatabase _mongoDb;
         public MongoDbContext()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            _mongoDb = client.GetDatabase("IoTMixing");
+            var connectionString = ConfigurationManager.AppSettings["connectionString"].ToString();
+            var dbName = ConfigurationManager.AppSettings["dbName"].ToString();
+            var client = new MongoClient(connectionString);
+            _mongoDb = client.GetDatabase(dbName);
         }
         public IMongoCollection<Employee> Employee
         {

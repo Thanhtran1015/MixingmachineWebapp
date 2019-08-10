@@ -1,12 +1,13 @@
 ﻿
 @{
     ViewBag.Title = "Chart";
+    var url = ViewBag.url as string;
 }
 @section scripts{
     <script>
         var chart = {
             init() {
-                setInterval(this.loadData.bind(this), 100);
+                setInterval(this.loadData.bind(this),600);
                 chart.registerRevent();
             },
             registerRevent() {
@@ -14,65 +15,84 @@
             },
             loadData() {
                 $.ajax({
-                    url: 'http://10.4.0.57:8037/api/rpms',
+                    url: '@url',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data, textStatus, xhr) {
                         console.log(data);
                         if (data.length !== 0) {
-                             $('.title1').html("<b><b>CoreID</b></b>: " + data[0].CoreID);
-                        $('.title2').html("<b>Duration</b>: " + data[0].Duration);
-                        $('.title3').html("<b>sumRPM</b>: " + data[0].sumRPM);
-                        $('.title4').html("<b>Count</b>: " + data[0].Count);
-                        $('.title5').html("<b>Average</b>: " + Math.round(data[0].Average, 2));
-                        $('.title6').html("<b>Duration</b>: " + data[0].Duration);
-                        $('.title7').html("<b>Sequence</b>: " + data[0].Sequence);
-                        var ctx = document.getElementById('myChart').getContext('2d');
-                        var chart = new Chart(ctx, {
-                            // The type of chart we want to create
-                            type: 'line',
+                            var rpm = data[0].CreatedTimeCollection;
+                            //var sum=0;
+                            //for (var i = 0; i < rpm.length; i++) {
+                            //    sum += rpm[i];
+                            //}
+                            //var avg = sum / rpm.length;
 
-                            // The data for our dataset
-                            data: {
-                                labels: data[0].CreatedTimeCollection,
-                                datasets: [{
-                                    label: 'Revolutions per minute',
-                                    backgroundColor: 'rgb(0, 0, 0,0)',
-                                    borderColor: 'rgb(255, 99, 132)',
-                                    data: data[0].RPMCollection
-                                }]
-                            },
-
-                            // Configuration options go here
-                            options: {
-                                animation: false,
-                                title: {
-                                    display: true,
-                                    text: 'Mixing Machine Chart',
-                                    fontSize: 16
-                                },
-                                scales: {
-                                    yAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Revolutions per minute',
-                                            fontSize: 14
-                                        }
-                                    }],
-                                     xAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Time',
-                                            fontSize: 14
-                                        }
-                                    }]
-                                }
-
+                            var sum = 0;
+                            for( var i = 0; i < rpm.length; i++ ){
+                                sum += parseInt( rpm[i], 10 ); //don't forget to add the base
                             }
 
-                        });
+                            var avg = sum/rpm.length;
+                            $('.title1').html("<b>CoreID</b>: " + data[0].CoreID);
+                            $('.title2').html("<b>Duration</b>: " + data[0].Duration);
+                            //$('.title3').html("<b>sumRPM</b>: " + data[0].sumRPM);
+                            $('.title4').html("<b>Average</b>: " + Math.round(avg,2));
+                            $('.title5').html("<b>Sequence</b>: " + data[0].Sequence);
+                            $('.title6').html("<b>StartTime</b>: " + data[0].StartTime);
+                            $('.title7').html("<b>EndTime</b>: " + data[0].EndTime);
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            //var lines = [data[0].RPMCollection.length];
+                            //for (var i = 0; i < lines.length; i++) {
+                            //    lines[i].push(data[0].standardCT)
+                            //}
+                            var chart = new Chart(ctx, {
+                                // The type of chart we want to create
+                                type: 'line',
+
+                                // The data for our dataset
+                                data: {
+                                    labels: data[0].CreatedTimeCollection,
+                                    datasets: [{
+                                        label: 'Revolutions per minute',
+                                        backgroundColor: 'rgb(0, 0, 0,0)',
+                                        borderColor: 'rgb(255, 99, 132)',
+                                        data: data[0].RPMCollection
+                                    }
+
+                                    ]
+                                },
+
+                                // Configuration options go here
+                                options: {
+                                    animation: false,
+                                    title: {
+                                        display: true,
+                                        text: 'Mixing Machine Chart',
+                                        fontSize: 16
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Revolutions per minute',
+                                                fontSize: 14
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Time',
+                                                fontSize: 14
+                                            }
+                                        }]
+                                    }
+
+                                }
+
+                            });
                         }
-                       
+
                     },
                     error: function (xhr, textStatus, errorThrown) {
                         //console.log('Error in Operation');
@@ -81,15 +101,15 @@
             }
         }
         $(document).ready(function () {
-           chart.init();
-         
+            chart.init();
+
         });
 
     </script>
 }
 <div class="row">
     <div class="col-12" id="chart">
-        <h3 class="py-3 text-info">Detail</h3>
+        <h3 class="py-3 text-info">Real Time Data</h3>
 
         <div class="row py-3">
             <div class="col-md">
@@ -100,10 +120,10 @@
                 <p class="title2"></p>
 
             </div>
-            <div class="col-md">
-                <p class="title3"></p>
+            @*<div class="col-md">
+                    <p class="title3"></p>
 
-            </div>
+                </div>*@
             <div class="col-md">
                 <p class="title4"></p>
 
